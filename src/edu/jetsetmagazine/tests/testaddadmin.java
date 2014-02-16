@@ -21,6 +21,10 @@ public class testaddadmin {
         Administrateur admin=new Administrateur("Med walid", "Karoui", "walid.karoui@esprit.tn", "+216 28513024", "admin2", "admin2");
         AdministrateurDAO admindao= new AdministrateurDAO();
         //admindao.insertAdmin(admin);
-        admindao.updateAdmin(admin);
+        //admindao.updateAdmin(admin);
+        //admindao.deleteadministrateur(2);
+        Administrateur adminrecherche= new Administrateur();
+        adminrecherche=admindao.findAdminByNum(3);
+        adminrecherche.toString();
     }
 }

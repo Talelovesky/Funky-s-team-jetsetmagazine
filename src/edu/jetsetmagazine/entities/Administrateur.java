@@ -25,6 +25,11 @@ public class Administrateur {
         this.login_admin = login_admin;
         this.passwd_admin = passwd_admin;
     }
+    
+    public Administrateur()
+    {
+        
+    }
 
     public int getId_admin() {
         return id_admin;
@@ -62,6 +67,10 @@ public class Administrateur {
         this.prenom_admin = prenom_admin;
     }
 
+    public void setId_admin(int id_admin) {
+        this.id_admin = id_admin;
+    }
+
     public void setMail_admin(String mail_admin) {
         this.mail_admin = mail_admin;
     }
@@ -76,6 +85,11 @@ public class Administrateur {
 
     public void setPasswd_admin(String passwd_admin) {
         this.passwd_admin = passwd_admin;
+    }
+
+    @Override
+    public String toString() {
+        return "Administrateur{" + "id_admin=" + id_admin + ", nom_admin=" + nom_admin + ", prenom_admin=" + prenom_admin + ", mail_admin=" + mail_admin + ", telephone_admin=" + telephone_admin + ", login_admin=" + login_admin + ", passwd_admin=" + passwd_admin + '}';
     }
     
     
