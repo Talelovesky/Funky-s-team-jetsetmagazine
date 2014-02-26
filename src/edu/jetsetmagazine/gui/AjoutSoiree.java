@@ -55,6 +55,7 @@ public class AjoutSoiree extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(750, 445));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Ajouter une soirée :");
 
         jLabel2.setText("Nom soirée :");
@@ -90,6 +91,7 @@ public class AjoutSoiree extends javax.swing.JFrame {
         jTAdescriptionsoiree.setColumns(20);
         jTAdescriptionsoiree.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTAdescriptionsoiree.setRows(5);
+        jTAdescriptionsoiree.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane2.setViewportView(jTAdescriptionsoiree);
 
         jBvalider.setText("Valider l'ajout");
@@ -101,6 +103,7 @@ public class AjoutSoiree extends javax.swing.JFrame {
         });
 
         jBreset.setText("Reset");
+        jBreset.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBreset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBresetActionPerformed(evt);
@@ -137,22 +140,22 @@ public class AjoutSoiree extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jBvalider)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBreset)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBannuler)
-                .addGap(26, 26, 26))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFNom_soiree, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,7 +163,7 @@ public class AjoutSoiree extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFdate_soiree, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,7 +210,7 @@ public class AjoutSoiree extends javax.swing.JFrame {
         String dd=datesoiree.substring(8, 10);
         int day;        
         day = Integer.parseInt(dd);
-        Date date=new Date(an, mon, day);
+        Date date=new Date(an-1900, mon-1, day);
         
         SoireeDAO soireedao=new SoireeDAO();
         Soiree s=new Soiree();
@@ -226,7 +229,7 @@ public class AjoutSoiree extends javax.swing.JFrame {
             soireedao.insertSoiree(s); 
             JOptionPane.showMessageDialog(this,"Ajout effectuée avec succée :");
         
-        }    
+           }
         
         
         
