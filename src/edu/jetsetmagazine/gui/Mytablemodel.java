@@ -24,10 +24,12 @@ public class Mytablemodel extends AbstractTableModel{
         listsoiree=soireedao.DisplayAllSoiree();
     }
     
+    @Override
     public int getRowCount() { //nombre de lignes de la table
         return listsoiree.size();
     }
 
+    @Override
     public int getColumnCount() { //nombre de colonnes de la table
         return header.length;
     }

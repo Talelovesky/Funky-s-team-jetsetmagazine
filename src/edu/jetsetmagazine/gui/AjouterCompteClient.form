@@ -42,11 +42,9 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jTFlogin" pref="130" max="32767" attributes="0"/>
                                   <Component id="jTFprenom" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTFadresse" pref="130" max="32767" attributes="0"/>
-                                      <Component id="jTFNumtelephone" max="32767" attributes="0"/>
-                                      <Component id="jTFemail" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jTFadresse" pref="130" max="32767" attributes="0"/>
+                                  <Component id="jTFNumtelephone" max="32767" attributes="0"/>
+                                  <Component id="jTFemail" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTFNom" max="32767" attributes="0"/>
                                   <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
                               </Group>
