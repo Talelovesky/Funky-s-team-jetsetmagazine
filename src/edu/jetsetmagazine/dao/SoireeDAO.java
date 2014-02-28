@@ -100,7 +100,7 @@ public class SoireeDAO {
     }
     
     
-            public Soiree findAdminByID(int num){
+        public Soiree findAdminByID(int num){
 
         String requete = "select * from soiree where code_soiree = ?";
 
@@ -128,4 +128,32 @@ public class SoireeDAO {
         }
     }
     
+        public Soiree findAdminBynom(String nom){
+
+        String requete = "select * from soiree where nom_soiree = ?";
+
+        try{
+        PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+        ps.setString(1, nom);
+        ResultSet resultat = ps.executeQuery();
+        //AdministrateurDAO admindao = new AdministrateurDAO();
+        Soiree soiree = new Soiree();
+        while (resultat.next()){
+
+           soiree.setCode_soiree(resultat.getInt(1));
+           soiree.setNom_soiree(resultat.getString(2));
+           soiree.setDescription_soiree(resultat.getString(3));       
+           soiree.setDate_soiree(resultat.getDate(4));
+           soiree.setAdresse_soiree(resultat.getString(5));                 
+        }
+        
+        return soiree;
+        
+        }
+        catch(SQLException ex){
+            System.out.println("erreur lors du chargement"+ex.getMessage());
+            return null;
+        }
+    }
+        
 }

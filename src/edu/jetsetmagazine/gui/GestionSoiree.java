@@ -7,6 +7,7 @@ package edu.jetsetmagazine.gui;
 import edu.jetsetmagazine.dao.SoireeDAO;
 import edu.jetsetmagazine.entities.Soiree;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
@@ -50,15 +51,16 @@ public class GestionSoiree extends javax.swing.JFrame {
         jTFadresse = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        jTFrecherche = new javax.swing.JTextField();
+        jBrecherche = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        setMaximumSize(new java.awt.Dimension(1120, 6));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Talel\\Desktop\\imageicone\\telecharger-deconnectez-icone-6822-64.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/telecharger-deconnectez-icone-6822-64.png"))); // NOI18N
         jButton1.setText("Ajouter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +68,7 @@ public class GestionSoiree extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Talel\\Desktop\\imageicone\\livre-modifier-icone-9014-64.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/livre-modifier-icone-9014-64.png"))); // NOI18N
         jButton2.setText("Modifier");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +76,7 @@ public class GestionSoiree extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Talel\\Desktop\\imageicone\\fermer-icone-9559-64.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/fermer-icone-9559-64.png"))); // NOI18N
         jButton3.setText("Supprimer");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,8 +84,13 @@ public class GestionSoiree extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Talel\\Desktop\\imageicone\\Button-Refresh-icon.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/Button-Refresh-icon.png"))); // NOI18N
         jButton4.setText("Reset");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,9 +122,16 @@ public class GestionSoiree extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Commandes de gestions");
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/sortir-session-icone-5274-48.png"))); // NOI18N
         jButton5.setText("Quitter");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Précedent");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/home.png"))); // NOI18N
+        jButton6.setText("Home");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -195,7 +209,13 @@ public class GestionSoiree extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jButton7.setText("jButton7");
+        jBrecherche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/trouver-recherche-zoom-icone-4884-48.png"))); // NOI18N
+        jBrecherche.setText("Rechercher");
+        jBrecherche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBrechercheActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,38 +228,45 @@ public class GestionSoiree extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTFrecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBrecherche)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton6)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton5)
-                                .addGap(12, 12, 12))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
-                                .addContainerGap())))))
+                                .addGap(11, 11, 11))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTFrecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBrecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -268,8 +295,6 @@ public class GestionSoiree extends javax.swing.JFrame {
         nomsoiree=jTfnomsoiree.getText();
         discriptionsoiree=jTAdescrip.getText();
         adressesoiree=jTFadresse.getText();
-        Date Datesoiree;
-        Datesoiree = jXDatePickerdatesoiree.getDate();
         
 
          
@@ -288,13 +313,7 @@ public class GestionSoiree extends javax.swing.JFrame {
 //        day = Integer.parseInt(dd);
 //        Date date=new Date(an-1900, mon-1, day);
 //        
-        SoireeDAO soireedao=new SoireeDAO();
-        Soiree s=new Soiree();
-        s.setNom_soiree(nomsoiree);
-        s.setDescription_soiree(discriptionsoiree);
-        java.sql.Date sqlDate = new java.sql.Date(Datesoiree.getTime());
-        s.setDate_soiree(sqlDate);
-        s.setAdresse_soiree(adressesoiree);
+        
         
             
         if( nomsoiree.equals("") || discriptionsoiree.equals("") || adressesoiree.equals(""))
@@ -303,6 +322,16 @@ public class GestionSoiree extends javax.swing.JFrame {
         }
         else
         {
+            SoireeDAO soireedao=new SoireeDAO();
+            Soiree s=new Soiree();
+            s.setNom_soiree(nomsoiree);
+            s.setDescription_soiree(discriptionsoiree);
+            Date Datesoiree;
+            Datesoiree = jXDatePickerdatesoiree.getDate();
+
+            java.sql.Date sqlDate = new java.sql.Date(Datesoiree.getTime());
+            s.setDate_soiree(sqlDate);
+            s.setAdresse_soiree(adressesoiree);
             soireedao.insertSoiree(s); 
             JOptionPane.showMessageDialog(this,"Ajout effectuée avec succée :");
         
@@ -322,13 +351,6 @@ public class GestionSoiree extends javax.swing.JFrame {
         java.util.Date datesoiree=jXDatePickerdatesoiree.getDate();
         
          
-        int ligne_selectionee=jTable1.getSelectedRow();
-        int id = (int) jTable1.getValueAt(ligne_selectionee, 0);
-        
-        Soiree ssup=new Soiree();
-        
-        //ssup.setAdresse_soiree(adresse);
-        ssup.setCode_soiree(id);
         //ssup.setDate_soiree(new java.sql.Date(datesoiree.getTime()));
         //ssup.setNom_soiree(nomsoiree);
         //ssup.setDescription_soiree(discrip);
@@ -340,7 +362,14 @@ public class GestionSoiree extends javax.swing.JFrame {
         } 
         else
         {
-            
+             
+        int ligne_selectionee=jTable1.getSelectedRow();
+        int id = (int) jTable1.getValueAt(ligne_selectionee, 0);
+        
+        Soiree ssup=new Soiree();
+        
+        //ssup.setAdresse_soiree(adresse);
+        ssup.setCode_soiree(id);
              SoireeDAO soireedao=new SoireeDAO();
              soireedao.deleteSoiree(id);
              JOptionPane.showMessageDialog(this,"Suppression effectuée avec succès :");
@@ -371,6 +400,48 @@ public class GestionSoiree extends javax.swing.JFrame {
           
 
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        jTfnomsoiree.setText("");
+        jTAdescrip.setText("");
+        jTFadresse.setText("");
+               
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jBrechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBrechercheActionPerformed
+        // TODO add your handling code here:
+        SoireeDAO sdao=new SoireeDAO();
+        Soiree sresultat=new Soiree();
+        
+        sresultat=sdao.findAdminBynom(jTFrecherche.getText());
+        
+        System.out.println(""+sresultat.toString());
+        
+        if((sresultat.getNom_soiree() != null) && (sresultat.getAdresse_soiree() != null) && (sresultat.getDescription_soiree() != null))
+        {
+             jTfnomsoiree.setText(sresultat.getNom_soiree());
+             jTFadresse.setText(sresultat.getAdresse_soiree());
+             jTAdescrip.setText(sresultat.getDescription_soiree());
+             jXDatePickerdatesoiree.setDate(sresultat.getDate_soiree());
+            
+             JOptionPane.showMessageDialog(this,"recherche effectuée avec succès :");
+        }
+        else
+        {
+            
+             JOptionPane.showMessageDialog(this,"Nom soirée inexistant","Recherche nom soirée",JOptionPane.WARNING_MESSAGE);    
+        }
+    }//GEN-LAST:event_jBrechercheActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        Authentification au= new Authentification();
+        au.setVisible(true);
+        this.setVisible(false);
+             
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,13 +478,13 @@ public class GestionSoiree extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBrecherche;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -425,8 +496,8 @@ public class GestionSoiree extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTAdescrip;
     private javax.swing.JTextField jTFadresse;
+    private javax.swing.JTextField jTFrecherche;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTfnomsoiree;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerdatesoiree;
     // End of variables declaration//GEN-END:variables
