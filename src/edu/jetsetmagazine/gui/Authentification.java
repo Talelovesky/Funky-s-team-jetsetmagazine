@@ -8,6 +8,7 @@ import edu.jetsetmagazine.entities.*;
 import edu.jetsetmagazine.dao.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.print.DocFlavor;
 import javax.swing.JOptionPane;
       
 
@@ -42,7 +43,7 @@ public class Authentification extends javax.swing.JFrame {
         labelpasswd = new javax.swing.JLabel();
         jPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jClevel = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -55,14 +56,14 @@ public class Authentification extends javax.swing.JFrame {
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        jBannuller.setText("Annuler");
+        jBannuller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/fermer-icone-9559-64.png"))); // NOI18N
         jBannuller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBannullerActionPerformed(evt);
             }
         });
 
-        jBconnecter.setText("Se connecter");
+        jBconnecter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/authentifcation.jpg"))); // NOI18N
         jBconnecter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBconnecterActionPerformed(evt);
@@ -84,8 +85,8 @@ public class Authentification extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Level");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrateur", "Client" }));
+        jClevel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jClevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "administrateur", "client" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,23 +94,21 @@ public class Authentification extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jBconnecter)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBannuller))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelpasswd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labellogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTlogin)
-                            .addComponent(jPassword)
-                            .addComponent(jComboBox1, 0, 144, Short.MAX_VALUE))
-                        .addGap(0, 225, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelpasswd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labellogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTlogin)
+                    .addComponent(jPassword)
+                    .addComponent(jClevel, 0, 144, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBannuller, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,11 +125,11 @@ public class Authentification extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jClevel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(200, 200, 200)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBannuller, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBannuller, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -172,7 +171,7 @@ public class Authentification extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE)))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -193,33 +192,68 @@ public class Authentification extends javax.swing.JFrame {
         
        String login;
        String password;
+       
        login=jTlogin.getText();
        password=jPassword.getText();
        AdministrateurDAO admindao=new AdministrateurDAO();
        
        Administrateur admin= new Administrateur();
        admin=admindao.findAdminBylogin(login);
-        System.out.println(admin.toString());
+       System.out.println(admin.toString());
        
+       String level;
        
-       if(admin != null)
+        level= jClevel.getSelectedItem().toString();
+//        System.out.println(""+i[0]);
+        System.out.println(""+level);
+        System.out.println(""+login);
+        System.out.println(""+password);
+        
+        
+       if(level.equals("administrateur"))
        {
-        if( password.equals( admin.getPasswd_admin()) )
-        {
-            JOptionPane.showMessageDialog(this,"Connection établie :");
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this,"mot de passe incorrete !!!!!!!!!","Authentification failed",JOptionPane.ERROR_MESSAGE);
-        }
+           if(login.equals("") || password.equals(""))
+           {
+               JOptionPane.showMessageDialog(this,"Remplissez tous les champs !!","Authentification failed",JOptionPane.ERROR_MESSAGE);
+           }
+           else
+           {
+               if(admin.getPasswd_admin().equals(password))
+               {    
+                    System.out.println("bien");
+                    JOptionPane.showMessageDialog(this,"Connection administrateur établie :");
+                    Gererrubrique gr=new Gererrubrique();
+                    gr.setVisible(true);
+                    this.setVisible(false);
+               }
+               else
+               {
+                   JOptionPane.showMessageDialog(this,"Anthentification aministrateur erroné !!","Authentification failed",JOptionPane.ERROR_MESSAGE);
+               }
+           }
        }
        else
        {
-           JOptionPane.showMessageDialog(this,"login incorrecte!!!!!!!","Authentification failed",JOptionPane.ERROR_MESSAGE);
+           if(login.equals("") || password.equals(""))
+           {
+               JOptionPane.showMessageDialog(this,"Remplissez tous les champs !!","Authentification failed",JOptionPane.ERROR_MESSAGE);
+           }
+           else 
+            {Compte_client newcc=new Compte_client();
+             Compte_clientDAO ccdao=new Compte_clientDAO();
+             newcc=ccdao.findcompteclientByLogin(login);
+             
+             if((newcc.getPasswd().equals(password)))
+             {   
+                 
+                 JOptionPane.showMessageDialog(this,"Connection client établie :");
+             }
+           else
+           {
+               JOptionPane.showMessageDialog(this,"Authentification client failed !!","Authentification failed",JOptionPane.ERROR_MESSAGE);
+           }
        }
-       
-       
-       //System.out.println("Login :"+login+" mot de passe :"+password);
+       }
        
     }//GEN-LAST:event_jBconnecterActionPerformed
 
@@ -260,7 +294,7 @@ public class Authentification extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBannuller;
     private javax.swing.JButton jBconnecter;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jClevel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

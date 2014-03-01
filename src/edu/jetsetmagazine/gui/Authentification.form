@@ -54,7 +54,7 @@
                       <Component id="jLabel1" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -85,28 +85,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jBconnecter" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jBannuller" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelpasswd" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labellogin" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTlogin" max="32767" attributes="0"/>
-                              <Component id="jPassword" max="32767" attributes="0"/>
-                              <Component id="jComboBox1" pref="144" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="225" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labelpasswd" alignment="0" max="32767" attributes="0"/>
+                      <Component id="labellogin" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jTlogin" max="32767" attributes="0"/>
+                      <Component id="jPassword" max="32767" attributes="0"/>
+                      <Component id="jClevel" pref="144" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="235" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jBconnecter" min="-2" pref="64" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jBannuller" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -127,12 +123,12 @@
                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jClevel" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jBannuller" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jBconnecter" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="jBannuller" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="jBconnecter" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -142,7 +138,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jBannuller">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Annuler"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/edu/jetsetmagazine/gui/fermer-icone-9559-64.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBannullerActionPerformed"/>
@@ -150,7 +148,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBconnecter">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Se connecter"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/edu/jetsetmagazine/gui/authentifcation.jpg"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBconnecterActionPerformed"/>
@@ -187,15 +187,15 @@
             <Property name="text" type="java.lang.String" value="Level"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jClevel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="Administrateur"/>
-                <StringItem index="1" value="Client"/>
+                <StringItem index="0" value="administrateur"/>
+                <StringItem index="1" value="client"/>
               </StringArray>
             </Property>
           </Properties>
