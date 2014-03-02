@@ -38,6 +38,19 @@ public class SoireeDAO {
                 System.out.println("erreur lors de l'insertion "+ex.getMessage());
             }
         }
+//    public void updateDepot(Depot d){
+//        String requete = "update depot set adresse_depot=? where id_depot=?";
+//        try {
+//            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+//            ps.setString(1, d.getAdresse_depot());
+//            ps.setInt(2, d.getId_dep());
+//            ps.executeUpdate();
+//            System.out.println("Mise à jour effectuée avec succès");
+//        } catch (SQLException ex) {
+//           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+//            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+//        }
+//    }
     public void updateSoiree(Soiree s)
              {
                 String requete = "update soiree set nom_soiree=?, description_soiree=?, date_soiree=?, adresse_soiree=? where code_soiree=?";
