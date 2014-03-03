@@ -5,7 +5,7 @@
 package edu.jetsetmagazine.dao;
 
 import edu.jestsetmagazine.utile.MyConnection;
-import edu.jetsetmagazine.entities.Soiree;
+import edu.jetsetmagazine.entities.Theatre;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,18 +17,18 @@ import java.util.List;
  *
  * @author Talel
  */
-public class SoireeDAO {
+public class TheatreDAO {
     
-    public void insertSoiree(Soiree s)
+    public void inserttheatre(Theatre t)
          {
 
-            String requete = "insert into soiree (nom_soiree,description_soiree,date_soiree,adresse_soiree) values (?,?,?,?)";
+            String requete = "insert into theatre (nom_theatre,description_theatre,date_theatre,adresse_theatre) values (?,?,?,?)";
             try {
                 PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-                ps.setString(1, s.getNom_soiree());
-                ps.setString(2, s.getDescription_soiree());
-                ps.setDate(3, s.getDate_soiree());
-                ps.setString(4, s.getAdresse_soiree());
+                ps.setString(1, t.getNom_theatre());
+                ps.setString(2, t.getDescription_theatre());
+                ps.setDate(3, t.getDate_theatre());
+                ps.setString(4, t.getAdresse_théatre());
 
                 ps.executeUpdate();
                 System.out.println("Ajout effectuée avec succès");
@@ -61,17 +61,17 @@ public class SoireeDAO {
 //            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
 //        }
 //}
-    public void updateSoiree(Soiree s)
+    public void updateSoiree(Theatre t)
              {
-                String requete = "update soiree set nom_soiree = ?,description_soiree = ?,date_soiree = ?,adresse_soiree = ? where code_soiree = ?";
+                String requete = "update theatre set nom_theatre = ?,description_theatre = ?,date_theatre = ?,adresse_theatre = ? where code_theatre = ?";
                 try {
-                    System.out.println(s.toString());
+                    System.out.println(t.toString());
                     PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-                    ps.setString(1, s.getNom_soiree());
-                    ps.setString(2, s.getDescription_soiree());
-                    ps.setDate(3, s.getDate_soiree());
-                    ps.setString(4, s.getAdresse_soiree());
-                    ps.setInt(5, s.getCode_soiree());
+                    ps.setString(1, t.getNom_theatre());
+                    ps.setString(2, t.getDescription_theatre());
+                    ps.setDate(3, t.getDate_theatre());
+                    ps.setString(4, t.getAdresse_théatre());
+                    ps.setInt(5, t.getCode_theatre());
                     ps.executeUpdate();
                     System.out.println("Mise à jour effectuée avec succès");
                 } catch (SQLException ex) {
@@ -80,9 +80,9 @@ public class SoireeDAO {
                 }
              }
              
-    public void deleteSoiree(int num){
+    public void deleteTheatre(int num){
 
-          String requete = "delete from soiree where code_soiree=?";
+          String requete = "delete from theatre where code_theatre=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, num);
@@ -96,54 +96,54 @@ public class SoireeDAO {
                          
                          
                          
-    public List<Soiree> DisplayAllSoiree (){
+    public List<Theatre> DisplayAllTheatre (){
 
 
-        List<Soiree> listesoiree = new ArrayList<>();
+        List<Theatre> listetheatre = new ArrayList<>();
 
-        String requete = "select * from soiree";
+        String requete = "select * from theatre";
         try {
            Statement statement = MyConnection.getInstance().createStatement();
             ResultSet resultat = statement.executeQuery(requete);
             SoireeDAO soireeDAO = new SoireeDAO();
             while(resultat.next()){
-                Soiree soiree =new Soiree();
-                soiree.setCode_soiree(resultat.getInt(1));
-                soiree.setNom_soiree(resultat.getString(2));
-                soiree.setDescription_soiree(resultat.getString(3));
-                soiree.setDate_soiree(resultat.getDate(4));
-                soiree.setAdresse_soiree(resultat.getString(5));
-                listesoiree.add(soiree);
+                Theatre theatre =new Theatre();
+                theatre.setCode_theatre(resultat.getInt(1));
+                theatre.setNom_theatre(resultat.getString(2));
+                theatre.setDescription_theatre(resultat.getString(3));
+                theatre.setDate_theatre(resultat.getDate(4));
+                theatre.setAdresse_théatre(resultat.getString(5));
+                listetheatre.add(theatre);
             }
-            return listesoiree;
+            return listetheatre;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des stocks "+ex.getMessage());
+            System.out.println("erreur lors du chargement des theatre "+ex.getMessage());
             return null;
         }
     }
     
     
-        public Soiree findsoireeByID(int num){
+        public Theatre findtheatreByID(int num){
 
-        String requete = "select * from soiree where code_soiree = ?";
+        String requete = "select * from theatre where code_theatre = ?";
 
         try{
         PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
         ps.setInt(1, num);
         ResultSet resultat = ps.executeQuery();
         //AdministrateurDAO admindao = new AdministrateurDAO();
-        Soiree soiree = new Soiree();
+        Theatre theatre = new Theatre();
         while (resultat.next()){
 
-           soiree.setCode_soiree(resultat.getInt(1));
-           soiree.setNom_soiree(resultat.getString(2));
-           soiree.setDescription_soiree(resultat.getString(3));       
-           soiree.setDate_soiree(resultat.getDate(4));
-           soiree.setAdresse_soiree(resultat.getString(5));                 
+           theatre.setCode_theatre(resultat.getInt(1));
+           theatre.setNom_theatre(resultat.getString(2));
+           theatre.setDescription_theatre(resultat.getString(3));       
+           theatre.setDate_theatre(resultat.getDate(4));
+           theatre.setAdresse_théatre(resultat.getString(5));                 
         }
         
-        return soiree;
+        return theatre;
         
         }
         catch(SQLException ex){
@@ -152,26 +152,26 @@ public class SoireeDAO {
         }
     }
     
-        public Soiree findsoireeBynom(String nom){
+        public Theatre findtheatreBynom(String nom){
 
-        String requete = "select * from soiree where nom_soiree = ?";
+        String requete = "select * from theatre where nom_theatre = ?";
 
         try{
         PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
         ps.setString(1, nom);
         ResultSet resultat = ps.executeQuery();
         //AdministrateurDAO admindao = new AdministrateurDAO();
-        Soiree soiree = new Soiree();
+        Theatre theatre = new Theatre();
         while (resultat.next()){
 
-           soiree.setCode_soiree(resultat.getInt(1));
-           soiree.setNom_soiree(resultat.getString(2));
-           soiree.setDescription_soiree(resultat.getString(3));       
-           soiree.setDate_soiree(resultat.getDate(4));
-           soiree.setAdresse_soiree(resultat.getString(5));                 
+           theatre.setCode_theatre(resultat.getInt(1));
+           theatre.setNom_theatre(resultat.getString(2));
+           theatre.setDescription_theatre(resultat.getString(3));       
+           theatre.setDate_theatre(resultat.getDate(4));
+           theatre.setAdresse_théatre(resultat.getString(5));                 
         }
         
-        return soiree;
+        return theatre;
         
         }
         catch(SQLException ex){
@@ -180,5 +180,6 @@ public class SoireeDAO {
         }
     }
         
+    
+    
 }
-   

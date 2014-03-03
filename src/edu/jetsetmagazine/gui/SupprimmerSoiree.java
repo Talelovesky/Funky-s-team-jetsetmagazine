@@ -134,7 +134,7 @@ public class SupprimmerSoiree extends javax.swing.JFrame {
         SoireeDAO soireedao=new SoireeDAO();
         Soiree s= new Soiree();
         
-        s=soireedao.findAdminByID(code_soiree);
+        s=soireedao.findsoireeByID(code_soiree);
         soireedao.deleteSoiree(code_soiree);
         JOptionPane.showMessageDialog(this,"Suppression effectuée avec succès :");
     }//GEN-LAST:event_jButton3ActionPerformed
