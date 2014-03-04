@@ -74,6 +74,8 @@ public class testsoiree {
        s3.setDate_soiree(d);
        s3.setDescription_soiree("taraji ya dawla");
        s3.setAdresse_soiree("vive l'esperance");
+       s3.setCode_soiree(s3.getCode_soiree());
+       
        soireedao.updateSoiree(s3);
        
        
