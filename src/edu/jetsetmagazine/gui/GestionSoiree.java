@@ -309,11 +309,16 @@ public class GestionSoiree extends javax.swing.JFrame {
         s.setDescription_soiree(jTAdescrip.getText());
         s.setNom_soiree(jTfnomsoiree.getText());
         soiredao.updateSoiree(s);
-        
+       
         }
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    
+    
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         Gererrubrique gr=new Gererrubrique();
