@@ -40,6 +40,8 @@ public class interfaceclient extends javax.swing.JFrame {
         jMconcert = new javax.swing.JMenuItem();
         jMemail = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -107,6 +109,13 @@ public class interfaceclient extends javax.swing.JFrame {
         jMemail.add(jMenuItem2);
 
         jMenuBar1.add(jMemail);
+
+        jMenu1.setText("Media");
+
+        jMenuItem3.setText("Consultition Affiche");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -188,11 +197,13 @@ public class interfaceclient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMcinema;
     private javax.swing.JMenuItem jMconcert;
     private javax.swing.JMenu jMemail;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMintervie;
     private javax.swing.JMenuItem jMnews;
     private javax.swing.JMenuItem jMsoirée;
