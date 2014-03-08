@@ -4,11 +4,25 @@
  */
 package edu.jetsetmagazine.gui;
 
+import edu.jestsetmagazine.utile.MyConnection;
 import edu.jetsetmagazine.dao.SoireeDAO;
 import edu.jetsetmagazine.entities.Soiree;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 /**
  *
  * @author Talel
@@ -54,6 +68,7 @@ public class GestionSoiree extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jTFrecherche = new javax.swing.JTextField();
         jBrecherche = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -229,6 +244,14 @@ public class GestionSoiree extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/rapport.jpg"))); // NOI18N
+        jButton8.setText("Générer rapport");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -252,14 +275,18 @@ public class GestionSoiree extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton6)
                                 .addGap(39, 39, 39)
                                 .addComponent(jButton5)
-                                .addGap(11, 11, 11))))))
+                                .addGap(11, 11, 11))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addComponent(jButton8)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,9 +307,12 @@ public class GestionSoiree extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
         );
 
@@ -309,6 +339,7 @@ public class GestionSoiree extends javax.swing.JFrame {
         s.setDescription_soiree(jTAdescrip.getText());
         s.setNom_soiree(jTfnomsoiree.getText());
         soiredao.updateSoiree(s);
+        JOptionPane.showMessageDialog(this,"Modification effectuée avec succée :");
        
         }
         
@@ -490,6 +521,33 @@ public class GestionSoiree extends javax.swing.JFrame {
         jTable1.setModel(new Mytablemodel());
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Connection connection;
+        try {
+            // - Connexion à la base
+            connection=MyConnection.getInstance();
+            // - Chargement et compilation du rapport (charger le fichier jrxml déjà généré)
+            JasperDesign jasperDesign = JRXmlLoader.load("C:\\Users\\Talel\\Desktop\\rapport pdf\\rapportsoiree.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            // - Paramètres à envoyer au rapport
+            Map  parameters = new HashMap();
+            parameters.put("Titre", "Titre");
+            // - Execution du rapport
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
+            // - Création du rapport au format PDF
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\Talel\\Desktop\\rapport pdf\\rapportsoiree.pdf");
+            System.out.println("success");
+           JOptionPane.showMessageDialog(this,"Rapport créer avec succées ","Recherche nom soirée",JOptionPane.INFORMATION_MESSAGE);    
+
+        }
+
+        catch (JRException e) {
+            System.out.println("erreur de compilation"+ e.getMessage());
+         } 
+        
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -533,6 +591,7 @@ public class GestionSoiree extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -55,6 +55,7 @@ public class gestiontheatre extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -228,6 +229,9 @@ public class gestiontheatre extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/jetsetmagazine/gui/rapport.jpg"))); // NOI18N
+        jButton8.setText("Générer rapport");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,14 +255,18 @@ public class gestiontheatre extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton6)
                                 .addGap(39, 39, 39)
                                 .addComponent(jButton5)
-                                .addGap(11, 11, 11))))))
+                                .addGap(11, 11, 11))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(209, 209, 209)
+                                .addComponent(jButton8)
+                                .addContainerGap(144, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,9 +287,13 @@ public class gestiontheatre extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
 
@@ -353,13 +365,13 @@ public class gestiontheatre extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        String nomsoiree;
-        String discriptionsoiree;
-        String datesoiree;
-        String adressesoiree;
-        nomsoiree=jTfnomsoiree.getText();
-        discriptionsoiree=jTAdescrip.getText();
-        adressesoiree=jTFadresse.getText();
+        String nomtheatre;
+        String discriptiontheatre;
+        String datetheatre;
+        String adressetheatre;
+        nomtheatre=jTfnomsoiree.getText();
+        discriptiontheatre=jTAdescrip.getText();
+        adressetheatre=jTFadresse.getText();
 
         //java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         //        datesoiree=jTFdat.getText();
@@ -376,7 +388,7 @@ public class gestiontheatre extends javax.swing.JFrame {
         //        Date date=new Date(an-1900, mon-1, day);
         //
 
-        if( nomsoiree.equals("") || discriptionsoiree.equals("") || adressesoiree.equals(""))
+        if( nomtheatre.equals("") || discriptiontheatre.equals("") || adressetheatre.equals(""))
         {
             JOptionPane.showMessageDialog(this,"Ajout erroné!! remplissez les champs de saisie !!!","Ajout soiree",JOptionPane.ERROR_MESSAGE);
         }
@@ -384,14 +396,14 @@ public class gestiontheatre extends javax.swing.JFrame {
         {
             
             Theatre t1=new Theatre();
-            t1.setNom_theatre(nomsoiree);
-            t1.setDescription_theatre(discriptionsoiree);
-            Date Datesoiree;
-            Datesoiree = jXDatePickerdatesoiree.getDate();
+            t1.setNom_theatre(nomtheatre);
+            t1.setDescription_theatre(discriptiontheatre);
+            Date Datet;
+            Datet = jXDatePickerdatesoiree.getDate();
 
-            java.sql.Date sqlDate = new java.sql.Date(Datesoiree.getTime());
+            java.sql.Date sqlDate = new java.sql.Date(Datet.getTime());
             t1.setDate_theatre(sqlDate);
-            t1.setAdresse_théatre(adressesoiree);
+            t1.setAdresse_théatre(adressetheatre);
             TheatreDAO t1dao=new TheatreDAO();
             t1dao.inserttheatre(t1);
             JOptionPane.showMessageDialog(this,"Ajout effectuée avec succée :");
@@ -402,35 +414,36 @@ public class gestiontheatre extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        if(jTfnomsoiree.getText().equals(""))
-//        {
-//               JOptionPane.showMessageDialog(this,"Ajout erroné!! remplissez les champs de saisie !!!","Ajout soiree",JOptionPane.ERROR_MESSAGE);
-//        }
-//        else
-//        {
-//        SoireeDAO soiredao=new SoireeDAO();
-//        Soiree s=new Soiree();
-//        s = soiredao.findsoireeBynom(jTfnomsoiree.getText());
-//        s.setAdresse_soiree(jTFadresse.getText());
-//        Date Datesoiree;
-//        Datesoiree = jXDatePickerdatesoiree.getDate();
-//        java.sql.Date sqlDate = new java.sql.Date(Datesoiree.getTime());
-//        s.setDate_soiree(sqlDate);
-//        s.setDescription_soiree(jTAdescrip.getText());
-//        s.setNom_soiree(jTfnomsoiree.getText());
-//        soiredao.updateSoiree(s);
-//       
-//        }
+        if(jTfnomsoiree.getText().equals(""))
+        {
+               JOptionPane.showMessageDialog(this,"Ajout erroné!! remplissez les champs de saisie !!!","Ajout soiree",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+        TheatreDAO tdao=new TheatreDAO();
+        Theatre t=new Theatre();
+        t = tdao.findtheatreBynom(jTfnomsoiree.getText());
+        t.setCode_theatre(t.getCode_theatre());
+        t.setAdresse_théatre(jTFadresse.getText());
+        Date Datet;
+        Datet = jXDatePickerdatesoiree.getDate();
+        java.sql.Date sqlDate = new java.sql.Date(Datet.getTime());
+        t.setDate_theatre(sqlDate);
+        t.setDescription_theatre(jTAdescrip.getText());
+        t.setNom_theatre(jTfnomsoiree.getText());
+        tdao.updateSoiree(t);
+       
+        }
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String nomsoiree=jTfnomsoiree.getText();
+        String nomtheatre=jTfnomsoiree.getText();
         String discrip=jTAdescrip.getText();
         String adresse=jTFadresse.getText();
-        java.util.Date datesoiree=jXDatePickerdatesoiree.getDate();
+        java.util.Date datetheatre=jXDatePickerdatesoiree.getDate();
 
         //ssup.setDate_soiree(new java.sql.Date(datesoiree.getTime()));
         //ssup.setNom_soiree(nomsoiree);
@@ -513,6 +526,7 @@ public class gestiontheatre extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

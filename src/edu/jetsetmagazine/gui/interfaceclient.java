@@ -26,6 +26,7 @@ public class interfaceclient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -37,6 +38,10 @@ public class interfaceclient extends javax.swing.JFrame {
         jMtheatre = new javax.swing.JMenuItem();
         jMcinema = new javax.swing.JMenuItem();
         jMconcert = new javax.swing.JMenuItem();
+        jMemail = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +91,23 @@ public class interfaceclient extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMemail.setText("Envoyer Email");
+        jMemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMemailActionPerformed(evt);
+            }
+        });
+
+        jMenuItem2.setText("Envoyer un mail");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMemail.add(jMenuItem2);
+
+        jMenuBar1.add(jMemail);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,6 +135,18 @@ public class interfaceclient extends javax.swing.JFrame {
     private void jMsoiréeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsoiréeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMsoiréeActionPerformed
+
+    private void jMemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMemailActionPerformed
+        // TODO add your handling code here:
+     
+    }//GEN-LAST:event_jMemailActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+           MailJframe m=new MailJframe();
+        m.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,9 +187,12 @@ public class interfaceclient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMactualite;
     private javax.swing.JMenuItem jMcinema;
     private javax.swing.JMenuItem jMconcert;
+    private javax.swing.JMenu jMemail;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMintervie;
     private javax.swing.JMenuItem jMnews;
     private javax.swing.JMenuItem jMsoirée;
