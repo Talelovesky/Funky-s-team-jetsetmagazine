@@ -440,10 +440,7 @@ public class gestiontheatre extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String nomtheatre=jTfnomsoiree.getText();
-        String discrip=jTAdescrip.getText();
-        String adresse=jTFadresse.getText();
-        java.util.Date datetheatre=jXDatePickerdatesoiree.getDate();
+       
 
         //ssup.setDate_soiree(new java.sql.Date(datesoiree.getTime()));
         //ssup.setNom_soiree(nomsoiree);
@@ -455,7 +452,10 @@ public class gestiontheatre extends javax.swing.JFrame {
         }
         else
         {
-
+            String nomtheatre=jTfnomsoiree.getText();
+            String discrip=jTAdescrip.getText();
+            String adresse=jTFadresse.getText();
+            java.util.Date datetheatre=jXDatePickerdatesoiree.getDate();
             int ligne_selectionee=jTable1.getSelectedRow();
             int id = (int) jTable1.getValueAt(ligne_selectionee, 0);
 

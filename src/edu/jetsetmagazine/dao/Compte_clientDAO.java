@@ -39,25 +39,20 @@ public class Compte_clientDAO {
             }
         }
          
-//             public void updateAdmin(Administrateur a)
-//             {
-//                String requete = "update administrateur set nom_admin=?, prenom_admin=?, mail_admin=?, telephone_admin=?, login_admin=?, passwd_admin=? where id_admin=?";
-//                try {
-//                    PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-//                    ps.setString(1, a.getNom_admin());
-//                    ps.setString(2, a.getPrenom_admin());
-//                    ps.setString(3, a.getMail_admin());
-//                    ps.setString(4, a.getTelephone_admin());
-//                    ps.setString(5, a.getLogin_admin());
-//                    ps.setString(6, a.getPasswd_admin());
-//                    ps.setInt(7, a.getId_admin());
-//                    ps.executeUpdate();
-//                    System.out.println("Mise à jour effectuée avec succès");
-//                } catch (SQLException ex) {
-//                   //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-//                    System.out.println("erreur lors de la mise à jour "+ex.getMessage());
-//                }
-//             }
+            public void updateCompteclient(Compte_client c)
+             {
+                String requete = "update compteclient set confirmation=? where id_compte_client=?";
+                  try {
+                    PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                    ps.setInt(1, c.getConfirmation());
+                    ps.setInt(2, c.getId_client());
+                    ps.executeUpdate();
+                    System.out.println("Mise à jour effectuée avec succès");
+                } catch (SQLException ex) {
+                   //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+                }
+             }
 
             public void deleteCompte_client(int num){
 
@@ -95,6 +90,7 @@ public class Compte_clientDAO {
            cc.setNum_telephone_client(resultat.getString(7));
            cc.setDate_adhesion(resultat.getDate(8));
            cc.setEmail(resultat.getString(9));
+           cc.setConfirmation(resultat.getInt(10));
           
         }
         
@@ -128,6 +124,7 @@ public class Compte_clientDAO {
            cc.setNum_telephone_client(resultat.getString(7));
            cc.setDate_adhesion(resultat.getDate(8));
            cc.setEmail(resultat.getString(9));
+           cc.setConfirmation(resultat.getInt(10));
           
         }
         
@@ -163,6 +160,7 @@ public class Compte_clientDAO {
                 cc.setNum_telephone_client(resultat.getString(7));
                 cc.setDate_adhesion(resultat.getDate(8));
                 cc.setEmail(resultat.getString(9));
+                cc.setConfirmation(resultat.getInt(10));
           
                 listecompteclient.add(cc);
             }

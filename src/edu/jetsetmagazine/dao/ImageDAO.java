@@ -6,7 +6,6 @@ package edu.jetsetmagazine.dao;
 
 import edu.jestsetmagazine.utile.MyConnection;
 import edu.jetsetmagazine.entities.Img;
-import edu.jetsetmagazine.entities.Soiree;
 import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;

@@ -18,7 +18,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class MyTablemodelCompteclient extends AbstractTableModel{
     List<Compte_client> listecc = new ArrayList<>();
-    String []header = {" Id compte client"," Login "," Mot de passe "," Nom Client "," Prénom Client "," Adresse Client "," Numéo téléphone "," Date adhésion "};
+    String []header = {" Id compte client"," Login "," Mot de passe "," Nom Client "," Prénom Client "," Adresse Client "," Numéo téléphone "," Date adhésion "," Email "," Confirmtion "};
 
     public MyTablemodelCompteclient() { //remplissage de la liste des stocks
         Compte_clientDAO ccdao=new Compte_clientDAO();
@@ -53,7 +53,9 @@ public class MyTablemodelCompteclient extends AbstractTableModel{
             case 7://colonne adresse depot
                 return listecc.get(rowIndex).getDate_adhesion();
             case 8://colonne adresse depot
-                return listecc.get(rowIndex).getEmail();        
+                return listecc.get(rowIndex).getEmail(); 
+            case 9://colonne adresse depot
+                return listecc.get(rowIndex).getConfirmation(); 
             default:
                 return null;
         }

@@ -20,6 +20,16 @@ public class Compte_client {
     private String adresse_client;
     private String num_telephone_client;
     private Date  date_adhesion;
+    private int confirmation;
+
+    public int getConfirmation() {
+        return confirmation;
+    }
+
+    public void setConfirmation(int confirmation) {
+        this.confirmation = confirmation;
+    }
+    
 
     public void setEmail(String email) {
         this.email = email;
@@ -109,10 +119,11 @@ public class Compte_client {
 
     @Override
     public String toString() {
-        return "Compte_client{" + "id_client=" + id_client + ", login=" + login + ", passwd=" + passwd + ", email=" + email + ", nom_client=" + nom_client + ", prenom_client=" + prenom_client + ", adresse_client=" + adresse_client + ", num_telephone_client=" + num_telephone_client + ", date_adhesion=" + date_adhesion + '}';
+        return "Compte_client{" + "id_client=" + id_client + ", login=" + login + ", passwd=" + passwd + ", email=" + email + ", nom_client=" + nom_client + ", prenom_client=" + prenom_client + ", adresse_client=" + adresse_client + ", num_telephone_client=" + num_telephone_client + ", date_adhesion=" + date_adhesion + ", confirmation=" + confirmation + '}';
     }
 
-
+    
+    
 
     
     

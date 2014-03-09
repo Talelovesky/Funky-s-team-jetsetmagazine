@@ -4,6 +4,8 @@
  */
 package edu.jetsetmagazine.gui;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author Talel
@@ -113,6 +115,11 @@ public class interfaceclient extends javax.swing.JFrame {
         jMenu1.setText("Media");
 
         jMenuItem3.setText("Consultition Affiche");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -156,6 +163,14 @@ public class interfaceclient extends javax.swing.JFrame {
         m.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        afficherimage affimg=new afficherimage();
+        affimg.setVisible(true);
+        affimg.getContentPane().setPreferredSize(new Dimension(1366, 768));
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

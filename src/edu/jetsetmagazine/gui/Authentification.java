@@ -6,6 +6,7 @@ package edu.jetsetmagazine.gui;
 import edu.jetsetmagazine.entities.*;
 
 import edu.jetsetmagazine.dao.*;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import javax.print.DocFlavor;
@@ -217,9 +218,9 @@ public class Authentification extends javax.swing.JFrame {
        
         level= jClevel.getSelectedItem().toString();
 //        System.out.println(""+i[0]);
-        System.out.println(""+level);
-        System.out.println(""+login);
-        System.out.println(""+password);
+     //   System.out.println(""+level);
+       // System.out.println(""+login);
+       // System.out.println(""+password);
         
         
        if(level.equals("administrateur"))
@@ -246,6 +247,7 @@ public class Authentification extends javax.swing.JFrame {
        }
        else
        {
+           
            if(login.equals("") || password.equals(""))
            {
                JOptionPane.showMessageDialog(this,"Remplissez tous les champs !!","Authentification failed",JOptionPane.ERROR_MESSAGE);
@@ -254,13 +256,15 @@ public class Authentification extends javax.swing.JFrame {
             {Compte_client newcc=new Compte_client();
              Compte_clientDAO ccdao=new Compte_clientDAO();
              newcc=ccdao.findcompteclientByLogin(login);
-             
+            if(newcc.getConfirmation()==1)
+            {   
              if((newcc.getPasswd().equals(password)))
              {   
                  
                  JOptionPane.showMessageDialog(this,"Connection client établie :");
                  interfaceclient ic=new interfaceclient();
                  ic.setVisible(true);
+                 ic.getContentPane().setPreferredSize(new Dimension(1366, 768));
                  this.setVisible(false);
                  
              }
@@ -268,6 +272,11 @@ public class Authentification extends javax.swing.JFrame {
            {
                JOptionPane.showMessageDialog(this,"Authentification client failed !!","Authentification failed",JOptionPane.ERROR_MESSAGE);
            }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Votre inscription n'est pas encore confirmer par l'administrateur !!","Authentification failed",JOptionPane.WARNING_MESSAGE);
+            }
        }
        }
        
@@ -277,6 +286,7 @@ public class Authentification extends javax.swing.JFrame {
         // TODO add your handling code here:
         AjouterCompteClient acc=new AjouterCompteClient();
         acc.setVisible(true);
+        acc.getContentPane().setPreferredSize(new Dimension(1366, 768));
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
